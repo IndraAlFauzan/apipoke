@@ -29,4 +29,8 @@ class barang extends Model
     {
         return $this->belongsTo(kategoriBarang::class, 'id_kategori_barang', 'id_kategori_barang');
     }
+    public function users_barang()
+    {
+        return $this->hasMany(users_barang::class, 'id_barang', 'id_barang');
+    }
 }
