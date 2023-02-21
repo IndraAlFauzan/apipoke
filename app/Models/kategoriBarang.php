@@ -22,9 +22,7 @@ class kategoriBarang extends Model
      */
     protected $fillable = ['nama_kategori_barang'];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\hasMany
-     */
+   
     public function barang()
     {
         return $this->hasMany(barang::class, 'id_kategori_barang', 'id_kategori_barang');

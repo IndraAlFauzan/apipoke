@@ -8,7 +8,7 @@ use App\Models\users;
 class usersController extends Controller
 {
     public function getAllData(){
-        $users = users::all();
+        $users = users::all('name','email');
         return response()->json($users);
     }
     public function insertUsers(Request $request)
@@ -39,4 +39,6 @@ class usersController extends Controller
         $post->delete();
         return response()->json('Delete Sucsess. Data: '.$post->name);
     }
+   
+    
 }

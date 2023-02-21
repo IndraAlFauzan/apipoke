@@ -40,8 +40,7 @@ class users_barangController extends Controller
 
     public function getBarangByUsers($uid)
     {
-        $post = users_barang::where('uid', $uid)->get(
-            
+        $post = users_barang::where('uid', $uid)->get(     
         );
         $barang = [];
         foreach ($post as $key => $value) {
@@ -50,6 +49,7 @@ class users_barangController extends Controller
                 
                 'title' => $value->barang->title,
                 'id_kategori_barang' => $value->barang->id_kategori_barang,
+                
                 
             ];
             array_push($barang, $ulang);

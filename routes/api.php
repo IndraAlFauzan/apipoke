@@ -34,11 +34,15 @@ Route::Get('barang/getAllBarang/', [barangController::class, 'getAllData']);
 Route::post('barang/addBarang/', [barangController::class, 'insertBarang']);
 Route::post('barang/updateBarang/{id}', [barangController::class, 'updateBarang']);
 Route::post('barang/deleteBarang/{id}', [barangController::class, 'deleteBarang']);
+Route::get('barang/getBarang/{id}', [barangController::class, 'getBarang']);
+Route::get('barang/getBarangByKategori/{id_kategori_barang}', [barangController::class, 'getBarangByKategori']);
 //users barang
 Route::get('barang/getAllUsersBarang/', [users_barangController::class, 'getAllData']);
 Route::post('barang/addUsersBarang/', [users_barangController::class, 'insertusers_barang']);
 Route::post('barang/updateUsersBarang/{id}', [users_barangController::class, 'updateusers_barang']);
 Route::post('barang/deleteUsersBarang/{id}', [users_barangController::class, 'deleteusers_barang']);
+Route::get('barang/getBarangByUsers/{uid}', [users_barangController::class, 'getBarangByUsers']);
+Route::get('barang/getUsersByBarang/{id}', [users_barangController::class, 'getUsersByBarang']);
 //users
 Route::get('barang/getAllUsers/', [usersController::class, 'getAllData']);
 Route::post('barang/addUsers/', [usersController::class, 'insertUsers']);

@@ -21,10 +21,7 @@ class barang extends Model
      */
     protected $fillable = ['title', 'id_kategori_barang'];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-
+   
     public function kategori_barang()
     {
         return $this->belongsTo(kategoriBarang::class, 'id_kategori_barang', 'id_kategori_barang');

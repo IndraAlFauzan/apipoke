@@ -8,18 +8,19 @@ use Illuminate\Http\Request;
 
 class barangController extends Controller
 {
-    public function getAllData(){
+    public function getAllData()
+    {
         $barang = barang::all();
         return response()->json($barang);
     }
-    
+
     public function insertBarang(Request $request)
     {
         $post = new barang();
         $post->title = $request->title;
         $post->id_kategori_barang = $request->id_kategori_barang;
         $post->save();
-        return response()->json('Data '.$post->title.' Berhasil Disimpan');      
+        return response()->json('Data ' . $post->title . ' Berhasil Disimpan');
     }
 
     public function updateBarang(Request $request, $id)
@@ -28,14 +29,40 @@ class barangController extends Controller
         $post->title = $request->title;
         $post->id_kategori_barang = $request->id_kategori_barang;
         $post->save();
-        return response()->json('Data . '.$post->title .' Berhasil Diupdate');      
+        return response()->json('Data . ' . $post->title . ' Berhasil Diupdate');
     }
 
     public function deleteBarang($id)
     {
         $post = barang::find($id);
         $post->delete();
-        return response()->json('Data '.$post->title.' Berhasil Dihapus');      
+        return response()->json('Data ' . $post->title . ' Berhasil Dihapus');
     }
 
+    public function getBarang($id)
+    {
+        $post = barang::find($id);
+        return response()->json($post);
+    }
+
+    public function getBarangByKategori($id_kategori_barang)
+    {
+
+
+        $post = barang::where('id_kategori_barang', $id_kategori_barang)->get();
+        $kategoriBarang = [];
+        foreach ($post as $key => $value) {
+            $ulang = [
+
+                'id_barang' => $value->id_barang,
+
+                'title' => $value->title,
+                'id_kategori_barang' => $value->id_kategori_barang,
+
+
+            ];
+            array_push($kategoriBarang, $ulang);
+        }
+        return response()->json($kategoriBarang);
+    }
 }
