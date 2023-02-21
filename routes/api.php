@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\barangController;
 use App\Http\Controllers\kategoriBarangController;
+use App\Http\Controllers\users_barangController;
+use App\Http\Controllers\usersController;
 use App\Models\kategoriBarang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
