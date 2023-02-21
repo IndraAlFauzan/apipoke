@@ -37,4 +37,38 @@ class users_barangController extends Controller
         $post->delete();
         return response()->json('Delete Sucsess. Data: '.$post->uid);
     }
+
+    public function getBarangByUsers($uid)
+    {
+        $post = users_barang::where('uid', $uid)->get(
+            
+        );
+        $barang = [];
+        foreach ($post as $key => $value) {
+            $ulang = [
+                'uid' => $value->uid,
+                
+                'title' => $value->barang->title,
+                'id_kategori_barang' => $value->barang->id_kategori_barang,
+                
+            ];
+            array_push($barang, $ulang);
+        }
+        return response()->json($barang);
+    }
+
+    public function getUsersByBarang($id_barang)
+    {
+        $post = users_barang::where('id_barang', $id_barang)->get();
+        $users = [];
+        foreach ($post as $key => $value) {
+            $users[] = $value->users;
+        }
+        return response()->json($users);
+    }
+
+
+    
+
+    
 }
