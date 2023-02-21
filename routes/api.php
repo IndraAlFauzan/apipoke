@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\barangController;
+use App\Http\Controllers\kategoriBarangController;
+use App\Models\kategoriBarang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +21,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('barang/getAllKB/', [kategoriBarangController::class, 'getAllData']);
+Route::post('barang/addKategoriBarang/', [kategoriBarangController::class, 'insertKategoriBarang']);
+Route::post('barang/updateKB/{id}', [kategoriBarangController::class, 'updateKategoriBarang']);
+Route::post('barang/deleteKB/{id}', [kategoriBarangController::class, 'deleteKategoriBarang']);
+Route::Get('barang/getAllBarang/', [barangController::class, 'getAllData']);
+Route::post('barang/addBarang/', [barangController::class, 'insertBarang']);
+
