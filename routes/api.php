@@ -46,7 +46,7 @@ Route::get('barang/getUsersByBarang/{id}', [users_barangController::class, 'getU
 //users
 Route::get('barang/getAllUsers/', [usersController::class, 'getAllData']);
 Route::post('barang/addUsers/', [usersController::class, 'insertUsers']);
-Route::post('barang/updateUsers/{id}', [usersController::class, 'updateUsers']);
-Route::post('barang/deleteUsers/{id}', [usersController::class, 'deleteUsers']);
+Route::post('barang/updateUsers/{uid}', [usersController::class, 'updateUsers']);
+Route::post('barang/deleteUsers/{uid}', [usersController::class, 'deleteUsers']);
 
 

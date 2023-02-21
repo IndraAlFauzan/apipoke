@@ -47,19 +47,13 @@ class barangController extends Controller
 
     public function getBarangByKategori($id_kategori_barang)
     {
-
-
         $post = barang::where('id_kategori_barang', $id_kategori_barang)->get();
         $kategoriBarang = [];
         foreach ($post as $key => $value) {
             $ulang = [
-
                 'id_barang' => $value->id_barang,
-
                 'title' => $value->title,
                 'id_kategori_barang' => $value->id_kategori_barang,
-
-
             ];
             array_push($kategoriBarang, $ulang);
         }
